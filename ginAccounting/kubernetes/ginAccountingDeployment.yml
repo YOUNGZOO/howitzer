@@ -1,0 +1,24 @@
+#docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 local
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ginacn-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ginacn
+    spec:
+      #hostNetwork: true
+      containers:
+      - name: ginacn-container
+        image: 979156/idk:0.2
+        ports:
+        - name: ginacn-port
+          containerPort: 8080
+        #env:
+        #- name: MONGODB_ADDR
+        #  value: 127.0.0.1:27017
+        #command: ["/root/go/ginAccounting/ginAccounting"]

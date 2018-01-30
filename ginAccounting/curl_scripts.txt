@@ -1,0 +1,17 @@
+1. 일자, 모형조건 전표조회
+curl "http://127.0.0.1:8080/journal/20180128/00001"
+
+2. 모형조회
+curl "http://127.0.0.1:8080/model/00002"
+
+3. 신규전표(정상)
+curl --header "Content-Type: application/json" --request POST --data \
+'{"acn_date":"20180128","acn_model":"00001","acn_amount":"9876.54","detail":[ {"acn_code":"1000000001","credit_debit":"true","detail_amount":"9876.54"},{"acn_code":"2000000001","credit_debit":"true","detail_amount":"9870"},{"acn_code":"2000000002","credit_debit":"true","detail_amount":"6.54"}]}' http://127.0.0.1:8080/journal
+
+4. 신규전표(비정상 - null)
+curl --header "Content-Type: application/json" --request POST --data \
+'{"acn_date":"22","acn_model":"00001","acn_amount":"9876.54","detail":[ {"acn_code":"1000000001","credit_debit":"true","detail_amount":"9876.54"},{"acn_code":"2000000001","credit_debit":"true","detail_amount":"9870"},{"acn_code":"2000000002","credit_debit":"true","detail_amount":"6.54"}]}' http://127.0.0.1:8080/journal
+
+5. 신규전표(바정상 - 잘못된 모형)
+curl --header "Content-Type: application/json" --request POST --data \
+'{"acn_date":"20180128","acn_model":"101","acn_amount":"9876.54","detail":[ {"acn_code":"1000000001","credit_debit":"true","detail_amount":"9876.54"},{"acn_code":"2000000001","credit_debit":"true","detail_amount":"9870"},{"acn_code":"2000000002","credit_debit":"true","detail_amount":"6.54"}]}' http://127.0.0.1:8080/journal
