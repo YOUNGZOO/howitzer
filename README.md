@@ -1,5 +1,7 @@
-#ginAccounting
-##description
+ginAccounting
+==================
+description
+------------------
   * example project to improve current accounting system
   * HTTP communication between accounting system and other systems
   * orienting business-expandable, shorter and reusable server codes
@@ -7,12 +9,14 @@
   * simple journal aggregtion
   * resilient, continuos delivery
   
-##technical stack
+technical stack
+------------------
   1. Go/Gin framework for HTTP service
   2. mongoDB for storing, aggregating accounting journals and other information
   3. Docker/Kubernetes for management, deployment and HA
  
-##description
+directory description
+------------------
   * ginAccounting/
    1. *.go : server program codes
    2. curl_scripts.txt : to test local build
