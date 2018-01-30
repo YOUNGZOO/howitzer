@@ -17,15 +17,15 @@ technical stack
  
 directory description
 ------------------
-  * ginAccounting/
+	ginAccounting
 		1. *.go : server program codes
 		2. curl_scripts.txt : to test local build
 		3. Dockerfile.old : building intermediate result container for last version of 979156:idk
 		4. Dockerfile : returns kubernetes deployment container
-
-  * ginAccounting/kubernetes
+	
+	ginAccounting/kubernetes
 		kubernetes YAMLs
-   
-  * ginAccounting/mongo_scripts
+	
+	ginAccounting/mongo_scripts
 		data generation, MR code for mongoDB
    
